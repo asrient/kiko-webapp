@@ -1,0 +1,142 @@
+#frame{
+  position:relative;
+  height:100%;
+  width:100%;
+    background: rgb(255, 255, 255);
+}
+
+#cats{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+     position:relative;
+    top:0vh;
+    min-height: 200vh;
+    max-width: 100%;
+}
+.opts_bar{
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  justify-content: space-around;
+  
+}
+#opts_holder{
+  position: -webkit-sticky;
+  position: sticky;
+  top:0px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+ flex-direction: column;
+ background: rgb(255, 255, 255);
+}
+#nav_line{
+  height:2px;
+  width:100%;
+  background: linear-gradient(90deg, #00ff2b, #00adff, #ff006f);
+}
+
+#phone_opts_bar{
+   padding-top:1rem;
+ padding-bottom:1rem;
+}
+
+  #hed{
+    position: relative;
+    top:0px;
+    flex-direction:column;
+    background: rgb(255, 255, 255);
+  
+    display:flex;
+    
+    text-align: center;
+    
+    align-items: center;
+ z-index:1;
+    
+    }
+    #nav_bar{
+      width:100%;
+      display:flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding-top:2rem;
+      padding-bottom:1rem;
+     
+    }
+   #nav{
+width:100%;
+font-size: 1.8rem;
+   }
+#plr_space{
+ position: fixed;
+  background: none;
+ bottom:5vh;
+ left:0vw;
+  height:10vh;
+  width:100vw;
+  justify-content: center;
+  display: flex;
+  align-content: center;
+}
+#plr_bar{
+  border-radius: 0.8rem;
+  background: rgba(125, 125, 125, 0.274);
+  padding: 0.5rem;
+ margin:0.2rem;
+
+ backdrop-filter: blur(10px);
+-webkit-backdrop-filter: blur(10px);
+position: relative;
+height: 90%;
+width: 80%;
+}
+#plr_vote_butt{
+  display:none;
+}
+
+@media (min-width :700px){
+ #plr_space{
+    
+    position: relative;
+    top:0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    
+  }
+  #hed{
+    position: fixed;
+    top:0px;
+   
+    display:grid;
+    grid-template-columns:  20% 40% 40% ;
+    text-align: center;
+    
+    align-items: center;
+    min-height:10vh;
+    z-index:1;
+    }
+
+}
+
+
+
+
+@media (min-width :900px){
+
+  #hed{
+    backdrop-filter:unset;
+    -webkit-backdrop-filter: unset;
+}
+
+#branding{
+  display:block;
+}
+
+}
+
+
+

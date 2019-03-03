@@ -1,0 +1,3 @@
+*.db
+code/common/dump
+node_modules
