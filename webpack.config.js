@@ -5,11 +5,12 @@ module.exports = {
   entry: {
     app:"./code/app.js",
     login:"./code/login.js",
-    set_uid:"./code/set_uid.js",
     info:"./code/info.js",
-    editme:"./code/editme.js",
+    settings:"./code/settings.js",
+    test:"./code/test.js",
+   error:"./code/err.js",
 },
-  mode: "development",
+  mode: "production",
   module: {
     rules: [
       {
@@ -26,14 +27,14 @@ module.exports = {
   },
   resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
-    path: "H:\\AA\\kiko\\webstation\\bundle",
+    path: "H:\\AA\\kiko\\webstation\\exposed\\bundle",
     publicPath: "/app/",
     filename: "[name].bundle.js"
   },
   devServer: {
-    contentBase:"http://localhost:2000"/* path.join(__dirname, "public/")*/ ,
+    contentBase:"http://localhost:3000"/* path.join(__dirname, "public/")*/ ,
     port: 2000,
-    publicPath: "H:\\AA\\kiko\\webstation\\bundle",
+    publicPath: "H:\\AA\\kiko\\webstation\\exposed\\bundle",
     hotOnly: true
   },
  // plugins: [new webpack.HotModuleReplacementPlugin()]

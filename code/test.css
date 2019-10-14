@@ -1,0 +1,36 @@
+#console{
+    margin:1rem;
+    padding: 0.5rem;
+    width:100%;
+    max-width:900px;
+    height:90vh;
+    overflow-y: scroll;
+    background: rgb(48, 48, 48);
+    color:white;
+}
+.logs{
+    width:100%;
+    margin:0.1rem;
+    border:thin solid rgb(63, 63, 63);
+    background: rgb(29, 29, 29);
+    padding:0.2rem;
+    overflow-wrap: break-word;
+}
+#tst_opts{
+    width:100%;
+    margin-top:1rem;
+    padding:0.6rem;
+    background: rgb(218, 218, 218);
+    min-height:4rem;
+}
+.tst_status{
+    max-width:10rem;
+    min-width:5rem;
+    padding:0.4rem;
+    margin:0.2rem;
+    background:linear-gradient(0deg,rgb(12, 12, 12),rgb(78, 78, 78));
+    border-radius: 0.4rem;
+    color:white;
+    border:thin solid rgb(0, 0, 0);
+    display:flex;
+}

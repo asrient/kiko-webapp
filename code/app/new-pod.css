@@ -1,0 +1,40 @@
+#np_hed{
+    min-height: 8vh;
+    background: linear-gradient(120deg, #ff7f00, #ffd100);
+    color: #ffffff;
+    padding: 1rem;
+    position: sticky;
+    top: 0px;
+    z-index: -1;
+}
+.input-line-dark{
+    font-size:1.1rem;
+}
+#np_opts{
+    display:flex;
+    flex-direction: column;
+}
+@media(min-width:900px){
+    #np_opts{
+    display:grid;
+grid-template-columns:40% 60%;
+}
+}
+.input-line-bordered-dark:focus{
+border-color:rgb(59, 255, 0);
+}
+
+
+#np_bdy{
+    padding-top: 2vh;
+    background: #ffffff;
+   
+}
+
+
+#np_songs{
+    min-height:10rem;
+    padding: 1rem;
+    border-top:solid thin;
+    width:100%;
+}

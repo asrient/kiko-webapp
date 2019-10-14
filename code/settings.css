@@ -1,0 +1,108 @@
+#root{
+    min-height: 100vh;
+    background: #f3f3f3;
+}
+.set_bar{
+height:3rem;
+width:100vw;
+overflow: hidden;
+display: grid;
+grid-template-columns: 20% 60% 20%;
+position: fixed;
+top:0px;
+left:0px;
+background: rgb(255, 255, 255);
+}
+.set_menu_field{
+    width:100%;
+    overflow: hidden;
+    max-height: 15rem;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    background: rgb(255, 255, 255);
+}
+.set_menu_field:hover{
+    background: rgb(233, 233, 233);
+}
+.set_menu_field_space{
+     margin-top: 0.1rem;
+}
+.set_menu{
+display:block;
+}
+
+.set_menu_grp{
+    margin-top:1rem;
+    overflow: hidden;
+    height: fit-content;
+}
+
+@media(min-width:700px){
+    .set_menu{
+        display:grid;
+        grid-template-columns: 50% 50%;
+        }
+        .set_menu_grp{
+            margin:1rem;
+            border-radius: 0.5rem;
+        }
+}
+.slider{
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 100vh;
+    width:100vw;
+}
+.slider_bg{
+    position: fixed;
+    top:0px;
+    left:0px;
+    height: 100vh;
+    width:100vw;
+    background: rgba(0, 0, 0, 0.30980392156862746);
+    z-index: 1;
+}
+.slider_window{
+    background: #f0f0f0;
+    height: 90vh;
+    width:25rem;
+    z-index: 2;
+    border-radius: 0.5rem;
+}
+
+.input_txt{
+    border: none;
+    border-bottom: thin solid #dedede;
+    background: transparent;
+    font-size: 1.05rem;
+}
+
+.input_txt:focus{
+    outline: none;
+     border-bottom: thin solid #0099ff;
+}
+.err{
+    margin:0.5rem;
+}
+#editor{
+  height:100%;
+  width:100%;
+}
+.editor_holder{
+    display: none;
+    position: fixed;
+    top:0px;
+    left:0px;
+    height:100vh;
+    width:100vw;
+    z-index: 3;
+    background: #000000;
+}
+.editor_done_butt{
+    position: fixed;
+    bottom:1rem;
+    left:0px;
+    width:100vw;
+}

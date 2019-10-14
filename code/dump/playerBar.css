@@ -1,0 +1,33 @@
+.pb_wrapper{
+    position: fixed;
+    bottom:4rem;
+    left:0px;
+    width:100vw;
+    z-index: 3;
+
+}
+.pb_wrapper_contain{
+    position: relative;
+    width:100%;
+    z-index: 3;
+    padding-bottom:0.2rem;
+}
+#pb_bar{
+   height: auto;
+    display: grid;
+    grid-template-columns: 70% 30%;
+    max-width: 20rem;
+    padding: 0.3rem;
+    min-height:2rem ;
+    width:85%;
+    background: rgba(231, 231, 231, 0.741);
+    border-radius: 0.7rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+@media(min-width:800px){
+    #pb_bar{
+        height: 3rem;
+    }
+}

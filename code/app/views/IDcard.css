@@ -1,0 +1,64 @@
+
+.id_broach{
+  border-radius: 3rem;
+   margin-left: -2rem;
+    background: #ebebeba3;
+     color: white;
+       font-size: 1rem;
+         height: 2rem;
+          width: 2rem;
+          border: thin solid #c8c8c8;
+          -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+
+  .pannel-text{
+width:100%;
+    overflow: hidden;
+    display: flex;
+  }
+
+
+.id_songlist{
+padding: 1rem;
+margin-top:1rem;
+}
+.id_nameplate{
+ width:100%;
+ max-width: 400px;
+}
+.id_charm{
+  padding:2rem;
+  width:14rem;
+height:9rem;
+margin:0.8rem;
+background: #fdfdfd;
+border-radius: 2rem;
+box-shadow: 0px 4px 10px 2px #68686838;
+border: solid thin #eaeaea;
+}
+
+  .links_row{
+    display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-around;
+      height: 3.2rem;
+      font-size: 2rem;
+      width:100%;
+  }
+ 
+  .id_dp{
+    font-size: 4rem;
+    margin-right: 0.8rem;
+  }
+  @media(max-width:400px){
+    .id_dp{
+      font-size: 3.4rem;
+    }
+  }
+
+  .fbutt:hover{
+    opacity: 0.6;
+  }

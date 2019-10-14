@@ -1,0 +1,15 @@
+#spik_hed{
+    width:100%;
+    text-align: left;
+    padding: 1rem;
+    background: rgb(255, 255, 255);
+    position: sticky;
+    position:-webkit-sticky;
+    top:0px;
+    z-index: 2;
+}
+#spik_done{
+  position: absolute;
+    right:1rem;
+   
+}

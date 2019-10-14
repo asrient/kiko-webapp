@@ -1,0 +1,42 @@
+#pods_layout{
+    width:100%;
+    display:block;
+}
+#pods_slider{
+    background: white;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0rem;
+}
+#pods_browse{
+    background: white;
+    padding: 0.5rem;
+    padding-top:0px;
+}
+.pods_opt{
+padding: 0.4rem;
+width:100%;
+text-decoration: none;
+}
+.pods_opt:hover{
+    color:rgb(59, 59, 59);
+    text-decoration: none;
+    background: rgb(230, 230, 230);
+}
+@media(min-width:900px){
+    #pods_layout{
+        position: absolute;
+        top:0px;
+        display:grid;
+        grid-template-columns: 16rem auto;
+        min-height: 100vh;
+    }
+    #pods_slider{
+        padding-top: 3rem;
+        background: rgb(255, 255, 255);
+    }
+    #pods_browse{
+        padding-top: 3rem;
+    }
+}

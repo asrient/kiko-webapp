@@ -1,161 +1,234 @@
 import $ from "jquery";
-import React  from "react";
+import React,{Component}  from "react";
 import ReactDOM from "react-dom";
 
-import {View,newLayer,Pannel,Alert,killAction,Ask} from "./common/main.js";
-import App from "./app/main.js";
+import {View,newLayer,Alert,killAction,Ask,Icon,log} from "./common/main.js";
+import {store} from "./live.js";
+import {init as musicInit} from "./music.js";
+
+import Pods from "./app/pods.js";
+import People from "./app/people.js";
 import IDcard from "./app/IDcard.js";
+import Pod from "./app/Pod.js";
 
-import "./app/main.scss";
+import Search from "./app/search.js";
+import Followers from "./app/followers.js";
+//
+import {Test} from "./test.js";
+import SongPicker from "./app/SongPicker.js";
+import PodListeners from "./app/PodListeners.js";
+import AddSongs from "./app/addSongs.js";
+import { BrowserRouter as Router, Switch, Route, Link ,Redirect} from "react-router-dom";
+import Footer from "./parts/footer.js";
+
+window.prevLogs='';
+
+var   previousLocation;
+var isModal=false;
+class Pages extends Component {
+ 
+  constructor(props){
+      super(props);
+      console.log(this.props.location);
+      previousLocation = this.props.location;
+    
+  }
+
+ 
 
 
-
-ReactDOM.render(<App/>,document.getElementById("root"));
-
-
-ReactDOM.render(<View min={700} ><div style={{background:"grey"}}>Hi! this is a View!</div> </View>,document.getElementById("cats"));
-
-
-var scopes="user-top-read%20user-read-private%20user-read-email%20user-read-birthdate%20user-follow-read%20user-modify-playback-state%20user-library-read%20user-library-modify%20user-read-playback-state%20user-read-currently-playing";
-
-
-var TOKEN;
-function check_keys(data){
-    console.log(data);
-    data=JSON.parse(data);
-if(data.result=="FAILED"){      
-    window.setTimeout(function(){
- location.href=auth;
-    },1000) ;                 
-    Alert("About to redirect to Spotify...")  ;         
-    console.log("About to redirect to Spotify...");
+callBGpage(){
+  if(isModal){
    
+      // console.log("bg page switch called...")
+    return(this.switches(previousLocation,false))
+    
+   
+  }
+}
+switches(loc,focus){
+  return(
+<Switch location={loc}>
+{console.log("Switch to be matched: "+loc.pathname)}
+  <Route path="/" exact component={()=>{
+   if(me.pod==null)
+   {return( <Redirect to='/pods'/>)}
+   else{
+     return(<Redirect to={'/pod/'+me.pod.code}/>)
+   }
+    }}/>
+  <Route path="/pods" component={()=>{return(  <Pods focus={focus} />)}}/>
+  <Route path="/people" component={(p)=>{return(  <People focus={focus}  {...p}/>)}}/>
+  <Route path="/search" exact component={()=>{return(<Search focus={focus} />)}}/>
+  <Route path="/test" exact component={()=>{return(<Test focus={focus} />)}}/>
+  <Route path="/followers" exact component={()=>{return(<Followers focus={focus} />)}}/>
+   <Route path="/pod/listeners" exact strict component={(p)=>{return(  <PodListeners focus={focus} />)}}/>
+   <Route path="/pod/songs/add" exact strict component={(p)=>{return(  <AddSongs focus={focus} />)}}/>
+  <Route path="/pod/:podCode" exact component={(p)=>{return(<Pod focus={focus}  history={p.history} url={p.location.pathname}/>)}}/>
+  <Route path="/library" exact component={(p)=>{return(<SongPicker focus={focus}  kill="back" type="basic"/>)}}/>
+  <Route path="/@:userid" exact strict component={(p)=>{return(  <IDcard focus={focus}  url={p.location.pathname}/>)}}/>
+  <Route component={(p)=>{return(<Notfound {...p} />)}}/>
+</Switch>)
+}
+
+  render(){
+var p=this.props.location.pathname;
+
+    if(p=="/search"||p=="/library"||p=="/pod/songs/add"){
+    //  console.log('modal view case: '+this.props.location.pathname);
+      if(window.innerWidth>=900){
+        if( previousLocation == this.props.location){
+        isModal=false;
+       }
+       else{
+           isModal=true;
+       }
+       
+      }
+     else{console.log('modal view possible but not used')
+     previousLocation = this.props.location;
+     isModal=false;
+    }
+    }
+    else{
+    //  console.log('NOT a modal view case: '+this.props.location.pathname);
+      isModal=false;
+   previousLocation = this.props.location;
+  }
+
+       return(
+         <div style={{position:'relative',height:'100%',width:'100%'}}>
+
+<div className="bg_page">{this.callBGpage()}</div>
+
+{this.switches(this.props.location,true)}
+</div>
+       )
+  }
+  
+ 
+}
+
+class Notfound extends Component{
+  constructor(props){
+    super(props);}
+    path(){return(this.props.location.pathname)}
+ render(){
+   return(
+   <div style={{height: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',overflowY:'scroll'
+   }}>
+   <br/>
+  <div className="center"> <Icon src="/icon/kiko-dark.png" className="size-xl"/></div>
+   <br/>
+  <div className="center-col" style={{width:"100%",minHeight:'40vh',padding:'1rem'}}>
+  <h2 className="ink-red center">💔 The link's not valid.</h2><br/>
+ <div className="ink-green size-l">{this.path()}</div> <br/>
+  </div>
+  <div style={{width:'100%'}}><Footer theme="light"/></div>
+</div>
+)}
+ }
+
+ 
+ 
+
+ReactDOM.render(<Router>
+  <div style={{position:'relative',height:'100%',width:'100%'}}>
+ <Route component={(p)=>{ return <Pages {...p} />}} />
+ <div id="screen" style={{zIndex:"20",position:'fixed',top:'0px',left:'0px',width:'100%'}}></div>
+  </div>
+  </Router>
+  ,document.getElementById("root"));
+
+
+
+
+
+ 
+
+
+
+//Code for Spotify keys
+
+function check_keys(data){
+  console.log('/apis/keys: '+data.result);
+if(data.result=="FAILED"){      
+   
+    var nlayer=newLayer();
+    ReactDOM.render(
+  <Ask holder={nlayer} title='Log In' body='We are having trouble connecting to your music app.'>
+<button onClick={()=>{
+location.href=me.auth;
+ killAction(nlayer);
+}}>Log In</button>
+<button onClick={()=>{
+killAction(nlayer)
+location.reload()
+}}>CANCEL</button>
+    </Ask>
+    ,nlayer)
+  
+
+
 }
 else if(data.result=="SUCCESS"){
     console.log("new token recived!");
-TOKEN=data.data;
+me.source.access_token=data.data;
+store.dispatch({'type':'update'})
 }
 }
-var auth=new URL("https://accounts.spotify.com/authorize?client_id="+cID+"&response_type=code&redirect_uri="+PURL+"&scope="+scopes+"&state="+TICKET);
 
-/*/////////////////
 
-$.get("apis/get_keys.php").done(function(data){
-   // data=JSON.stringify(data);                           
+
+$(document).ready(()=>{
+  if(me.source!=null){
+
+    /////////////////
+    $.get("/apis/keys").done(function(data){              
 check_keys(data);
 });
-
-*/////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-document.getElementById("hed_uid").innerHTML=ME.uid;
-$("#hed_dp").attr("src",ME.dp);
-*/
-
+////////////////
+musicInit();
 window.setInterval(function(){
-    $.get("apis/get_keys.php").done(function(data){
+    $.get("/apis/keys").done(function(data){
         check_keys(data);
         });
 },3600000);
 
-
-class HelloMessage extends React.Component {
-    render() {
-      return <div>Hello {this.props.name}</div>;
-    }
   }
-
-
-/*
-  ReactDOM.render(
-    <HelloMessage name={ME.uid+'!'} />,
-    document.getElementById('cats')
-  );
- */
-  
-
-
-
  
-
-if(tovisit!=null){
-    visit(tovisit);
 }
-
-
-
-function visit(uid){
-  $.get("apis/user/get_info.php?userid="+uid).done(function(data){
-        data=JSON.parse(data);
-        if(data.result=="SUCCESS"){
-             data=data.data;
-        //  console.log(data);
-        var nlayer=newLayer();
-          ReactDOM.render(
-            <IDcard data={data} opts="0"  holder={nlayer}/>,
-            nlayer
-          );
-        }
-        else{
-            alert("No user found.");
-        }
-          });
-}
+)
  
 
 
-  $(".you_butt").click(()=>{
-  $.get("apis/me/get_info.php").done(function(data){
-  data=JSON.parse(data);
-   data=data.data;
-  //  console.log(data);
-  var nlayer=newLayer();
-    ReactDOM.render(
-      <IDcard data={data} opts="1" logout={()=>{logout()}} holder={nlayer}/>,
-      nlayer
-    );
-    });
-  });
-  
 
-  
-  $(".new_butt").click(()=>{
-    var nlayer=newLayer();
-    ReactDOM.render(
-<Ask holder={nlayer} title="Ask" body="This is an example of Ask">
-<button onClick={()=>{Alert("Helo Bello!")}}>OK</button>
-<button onClick={()=>{killAction(nlayer)}}>CANCEL</button>
-</Ask>
-  ,nlayer)
-  });
 
- 
 
-function logout(){
-    $.get("/apis/logout.php").done(dat=>{
-        dat=JSON.parse(dat);
-if(dat.result=="SUCCESS"){
-   location.href="/" ;
-}
-if(dat.result=="FAILED"){
-    console.log("Cant logOut!! Oh nooo");
-}
-    });
+// This is the "Offline page" service worker
+
+// Add this below content to your HTML page, or add the js file to your page at the very top to register service worker
+
+// Check compatibility for the browser we're running this in
+if ("serviceWorker" in navigator) {
+  if (navigator.serviceWorker.controller) {
+    console.log("[PWA Builder] active service worker found, no need to register");
+  } else {
+    // Register the service worker
+    navigator.serviceWorker
+      .register("/offlineWorker.js", {
+        scope: "./"
+      })
+      .then(function (reg) {
+        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+      });
+  }
 }
 
 
-$(".branding").click(function(){location.href="/";});
 
 
 

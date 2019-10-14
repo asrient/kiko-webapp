@@ -69,7 +69,7 @@ html,body{
     left:0vw;
     height:100vh;
     width:100vw;
-    background: rgba(0, 0, 0, 0.47);
+    background: rgba(0, 0, 0, 0.45);
     -webkit-backdrop-filter: blur(6px);
     backdrop-filter: blur(6px);
     z-index:1;
@@ -80,7 +80,7 @@ html,body{
   left:0vw;
   height:100vh;
   width:100vw;
-  background: rgba(0, 0, 0, 0.47);
+  background: rgba(0, 0, 0, 0.45);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   z-index:1;
@@ -100,7 +100,7 @@ a {
   
   a:hover {
     color: #0056b3;
-    text-decoration: underline;
+    text-decoration: none;
   }
   h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -109,6 +109,13 @@ a {
   font-weight: 500;
   line-height: 1.2;
   color: inherit;
+}
+
+.group{
+  margin: 0.3rem;
+    background: #f7f7f7;
+    border-radius: 0.6rem;
+    overflow: hidden;
 }
 
 h1, .h1 {
@@ -149,10 +156,10 @@ button{
   font-size: 1rem;
   font-weight: 400;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.3rem;
   padding-left: 1rem;
   padding-right: 1rem;
-margin:0.5rem;
+margin:0.2rem;
 border:none;
 background:#008cff ;
 color:white;
@@ -166,10 +173,10 @@ transition-duration: 100ms;
   font-size: 1rem;
   font-weight: 400;
   border-radius: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.3rem;
   padding-left: 1rem;
   padding-right: 1rem;
-margin:0.5rem;
+margin:0.2rem;
 border:none;
 background:#008cff ;
 color:white;
@@ -223,6 +230,9 @@ button:hover{
 .button-green{
   background:rgb(0, 228, 57) ;
 }
+.button-purple{
+  background:rgb(183, 0, 255); ;
+}
 .button-red{
   background:rgb(255, 0, 64) ;
 }
@@ -239,6 +249,11 @@ button:hover{
 .button-blue-light{
   background:rgb(243, 243, 243) ;
   color:rgb(0, 174, 255);
+  font-weight: 500;
+}
+.button-green-light{
+  background:rgb(243, 243, 243) ;
+  color:rgb(0, 192, 20);
   font-weight: 500;
 }
 .button-dark{
@@ -262,11 +277,10 @@ button:hover{
   font-weight: 600;
 }
 .button-bordered:hover{
-  border:none;
+  
   color:white;
   background: #008cff;
   font-weight: 400;
-  font-size:1rem;
 }
 .button-bordered-green{
   border-style:solid;
@@ -277,7 +291,7 @@ button:hover{
   font-weight: 600;
 }
 .button-bordered-green:hover{
-  border:none;
+  
   color:white;
   background: rgb(0, 192, 16);
   font-weight: 400;
@@ -292,7 +306,7 @@ button:hover{
   font-weight: 600;
 }
 .button-bordered-orange:hover{
-  border:none;
+ 
   color:white;
   background: #FFB84D;
   font-weight: 400;
@@ -301,15 +315,14 @@ button:hover{
 .button-bordered-black{
   border-style:solid;
   border-width: 0.1rem;
-  color:rgb(128, 128, 128);
-  border-color: rgb(128, 128, 128);
+  color:rgb(30, 30, 30);
+  border-color: rgb(30, 30, 30);
   background: none;
   font-weight: 600;
 }
 .button-bordered-black:hover{
-  border:none;
   color:white;
-  background: rgb(128, 128, 128);
+  background: rgb(30, 30, 30);
   font-weight: 400;
   font-size:1rem;
 }
@@ -322,7 +335,7 @@ button:hover{
   font-weight: 600;
 }
 .button-bordered-red:hover{
-  border:none;
+  
   color:white;
   background: rgb(255, 0, 64);
   font-weight: 400;
@@ -359,6 +372,27 @@ button:hover{
 .size-xxl{
   font-size:3rem;
 }
+
+.line-xs{
+  overflow: hidden;
+    height: 0.9rem;
+}
+.line-s{
+  overflow: hidden;
+    height: 1.1rem;
+}
+.line-m{
+  overflow: hidden;
+    height: 1.3rem;
+}
+.line-l{
+  overflow: hidden;
+    height: 1.6rem;
+}
+.line-xl{
+  overflow: hidden;
+    height: 2.1rem;
+}
 @media(min-width:360px){
   .size-xs{
     font-size:1rem;
@@ -378,10 +412,31 @@ button:hover{
   .size-xxl{
     font-size:3.5rem;
   }
+
+  .line-xs{
+    overflow: hidden;
+      height: 1.1rem;
+  }
+  .line-s{
+    overflow: hidden;
+      height: 1.2rem;
+  }
+  .line-m{
+    overflow: hidden;
+      height: 1.5rem;
+  }
+  .line-l{
+    overflow: hidden;
+      height: 1.9rem;
+  }
+  .line-xl{
+    overflow: hidden;
+      height: 2.3rem;
+  }
 }
 @media (min-width: 992px) {
  .size-xl{
-  font-size:3.2rem;
+  font-size:3rem;
 }
 .size-l{
   font-size:2rem;
@@ -390,13 +445,34 @@ button:hover{
   font-size:1.5rem;
 }
 .size-s{
-  font-size:1.2rem;
+  font-size:1.15rem;
 }
 .size-xs{
   font-size:1rem;
 }
 .size-xxl{
   font-size:3.5rem;
+}
+
+.line-xs{
+  overflow: hidden;
+    height: 1.1rem;
+}
+.line-s{
+  overflow: hidden;
+    height: 1.2rem;
+}
+.line-m{
+  overflow: hidden;
+    height: 1.5rem;
+}
+.line-l{
+  overflow: hidden;
+    height: 2.1rem;
+}
+.line-xl{
+  overflow: hidden;
+    height: 3.1rem;
 }
 }
 
@@ -502,11 +578,10 @@ button:hover{
 }
 .input-line-light{
   margin:0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: none;
-  padding: 0.4rem;
+  padding: 0.3rem;
   border-radius: 0.6rem;
-  
   background-color: #ffffff5d;
   color: rgb(218, 218, 218);
   font-weight: 100;
@@ -516,13 +591,13 @@ button:hover{
 }
 .input-line-dark{
   margin:0.5rem;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: none;
-  padding: 0.4rem;
+  padding: 0.3rem;
   border-radius: 0.6rem;
   
-  background-color: #86868642;
-  color: rgb(41, 41, 41);
+  background-color: #9b9b9b42;
+  color: rgb(58, 58, 58);
   font-weight: 100;
   font-family:'Segoe UI', sans-serif;
  /* backdrop-filter: blur(10px);
@@ -631,4 +706,35 @@ max-width:900px;
    
     .z3{
       z-index: 3;
+    }
+
+    .bg_page{
+display: none;
+
+    }
+    @media(min-width:900px){
+   .bg_page{
+      display: block;
+      min-height:100%;
+   }  
+    }
+
+    .dp{
+      border-radius: 100%;
+    }
+
+
+    ::-webkit-scrollbar{
+     width:0.5rem;
+     border-radius:0.5rem;
+      background:rgba(245, 245, 245, 0);
+     
+    }
+
+    ::-webkit-scrollbar-thumb{
+      background:rgba(202, 202, 202, 0.548);
+      border-radius:0.6rem;
+    }
+    ::-webkit-scrollbar-thumb:hover{
+      background:rgb(190, 190, 190);
     }

@@ -1,0 +1,34 @@
+.end{
+   position: relative;
+    min-height:20vh;
+     background-size: cover;
+    padding:3vh;
+    width: 100%;
+    display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.end-default{
+    background: url("/media/title-bg.png") 50% 10%;
+    background-size: cover;
+  }
+  .end-light{
+    background:#e6e6e6;
+  }
+  #connect-tray{
+    display:flex;
+    flex-direction:column;
+    line-height: 1.5;
+    text-align:center;
+    }
+    
+    #connect{
+      min-width:50vw;
+      justify-content: space-evenly;
+    }
+  @media(min-width:700px){
+    #connect-tray{
+        display:grid;
+        grid-template-columns:40% 60%;
+        }
+  }

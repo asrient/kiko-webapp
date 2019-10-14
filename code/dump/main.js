@@ -17,10 +17,12 @@ render(){
           <View min="700">
            <Icon src="icon/ico.png"/> 
           </View>
-          <View display="flex" max="699" id="nav_bar" className="ink-black base-semibold">
+          <View display="flex" max="699" id="nav_bar" className="ink-black base-semibold size-xl">
         
               <div>Browse</div>
-          <div className="ink-light">People</div>
+          <div >
+          <Icon src="/icon/dp.png" className="size-m you_butt" />
+          </div>
           
          
           </View>
@@ -52,16 +54,16 @@ render(){
 <View max="700" id="opts_holder" display="flex" >
        <div className="opts_bar container-fluid" id="phone_opts_bar">
       <div className="center size-s clickable new_butt" >
-       <Icon src="/icon/add-green.png"/>
-      <div className="ink-green base-regular">New</div>
+    <Icon src="/icon/add-green.png" className="size-m" />   
+      {/* <div className="ink-green base-regular">New</div>*/}
       </div>
        <div className="center size-s  clickable search_butt" >
-          <Icon src="icon/search-blue.png" className="size-s"/>
-          <div className="ink-blue base-regular">Search</div>
+        <Icon src="icon/search-blue.png" className="size-m"/>
+        {/*   <div className="ink-blue base-regular">Search</div>  */}
           </div>
-       <div className="center size-s  clickable you_butt" >
-           <Icon src="icon/dp.png" className="size-s"/>
-       <div className="ink-red base-regular">You</div>
+       <div className="center size-s  clickable" >
+       <Icon src="icon/following.png" className="size-m people_butt"/>
+       {/*  <div className="ink-red base-regular">People</div>*/}
        </div>
 </div>
 <div id="nav_line"></div>

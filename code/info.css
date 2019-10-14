@@ -1,0 +1,179 @@
+
+#showcase{
+  position: relative;
+  margin-bottom:1rem;
+  width:100%;
+  height:70vh;
+  min-height: 26rem;
+  background: url("/media/pods_showcase.png") 10% 10%;
+  background-size: cover;
+  background-repeat-x: repeat;
+  -webkit-background-repeat-x: repeat;
+  transition-duration: 4s;
+  transition-property: background-position;
+    transition-timing-function: linear;
+}
+#manydev_img{
+  position: relative;
+  margin-bottom:1rem;
+  width:100%;
+  height: 60vh;
+  min-height: 26rem;
+  background: url("/media/manydev.png") 67% 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#hero1{
+  max-width:100%;
+   margin-bottom:8vh;
+   background: url("/media/ad1.png") 67% 0%;
+   background-size: cover;
+   background-repeat: no-repeat;
+   height:15rem;
+}
+#dev_hero{
+  max-width:100%;
+  margin-bottom:8vh;
+  background: url("/media/hero_medium.png") 67% 0%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:20rem;
+}
+@media(min-width:700px){
+  #showcase{
+    height:50vw;
+  }
+  
+  #dev_hero{
+    height:50rem;
+  }
+}
+@media(min-width:900px){
+  #manydev_img{
+    height: 90vh;
+  }
+}
+   #appbar{
+    min-height: 45vh;
+   }
+   #topico{
+  position: absolute;
+  top:2rem;
+  width:100%;
+   }
+   #top{
+    margin-bottom:3rem;
+   }
+   #title{
+     margin-top:2rem;
+     padding:4rem;
+     width:100%;
+     padding-bottom: 1rem;
+   }
+  #sec1{
+    margin-top: 2rem;
+    height:20rem;
+    position:  relative;
+    background: url("/media/edit_small.png") 59% 10%;
+    background-size: cover;
+  background-repeat:no-repeat;
+  }
+ #sec2{
+  flex-flow: column-reverse;
+ }
+   #opening_butt{
+           position:fixed;
+           top:2vh;
+           right:4vw;
+           font-size:1.5rem;
+           z-index:10;
+       }
+       #screen{
+          position: fixed;
+          z-index: 20;
+       }
+    
+   #iapp{
+     font-size: 4rem;
+   }   
+ #hed{
+   position:fixed;
+   min-height: 2.8rem;
+   z-index:5;
+    top:0px;
+     left:0px;
+     height:11vh;
+     background: rgba(245, 245, 245, 0.568);
+     -webkit-backdrop-filter: blur(20px);
+     backdrop-filter: blur(20px);
+ }
+ .sec{
+   position:relative;
+   margin-bottom:2rem;
+   padding:2rem;
+   width: 100%;
+   padding-top:0px;
+ }
+
+ 
+ 
+ #screenshort{
+   height:60vh;
+   margin:2rem;
+   min-height: 20rem;
+ }
+ .screens{
+   position:relative;
+  background:rgb(255, 255, 255);
+   flex-direction: column;
+ }
+ 
+
+ 
+ 
+ 
+ @media(min-width:350px){
+ 
+ }
+ .apps{
+     font-size:3.2rem;
+     margin:2rem;
+     margin-bottom: 0.6rem;
+ }
+ 
+ 
+ @media(min-width:600px){
+   #sec1{
+   height: 29rem;
+   background: url("/media/edit.png") 50% 10%;
+   background-size: cover;
+   background-repeat:no-repeat;
+ }
+ }
+ 
+ @media(min-width:700px){
+ 
+   #appbar{
+     height:40vh;
+   }
+ 
+  #iapp{
+   font-size: 4.5rem;
+  }
+  
+ 
+ 
+   #screenshort{
+   height:70vh;
+ }
+ }
+ 
+ @media (min-width: 896px){
+ 
+ .screens{
+   display:grid;
+   grid-template-columns: 40% 40%;
+ }
+ }
