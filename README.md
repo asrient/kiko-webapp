@@ -1,34 +1,7 @@
 # kiko-web
 
-the common module exposes
+**This is the code base of the web version of Kiko that gets loaded to your browser
+when you visit https://kikoing.co.in pages.**
 
-View
-Pannel
-newLayer()
-killAction()
-Alert()
-Ask
-
-
-
-React
-ReactDOM
-React Router
-Redux
-
-
-In app URLs.........
-
-/
-/newpod
-/people
-/search
-/track/:trackId
-/pod/:podId
-/:userId
-
-.....................
-
-
-for sockets.io add:
-``import io from 'socket.io-client';
+The code base is packed using webpack and is put in the bundle directory of the server.
+The bundled version of the code lives in https://kikoing.co.in/bundle directory.
