@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "croppie": "^2.6.4",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.0",
     "react": "^16.5.2",
     "react-circular-progressbar": "^2.0.1",
     "react-dom": "^16.5.2",
